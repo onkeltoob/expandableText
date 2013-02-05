@@ -1,4 +1,4 @@
 expandableText
 ==============
 
-Display additional text for elements on mouse click
+This plugin provides functionality to display additional text for a given element taken from one of its data-attributes.
