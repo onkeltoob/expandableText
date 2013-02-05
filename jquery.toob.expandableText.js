@@ -65,6 +65,7 @@
 				// No data manipulation neccessary here so far
 			});
 			
+			// Set title attribute value depending on currently displayed text
 			function setTitleText(element){
 				element.attr('title', (element.text() == settings.placeholderText) ? settings.hiddenTitleText : settings.displayedTitleText);
 				if (!element.attr('title')) {
