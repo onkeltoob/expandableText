@@ -48,8 +48,7 @@
 
 					// Add click event for information element
 					expandedElement.on("click", function (event) {
-						$(this)
-							.text(($(this).text() == settings.placeholderText) ? expandedText : settings.placeholderText);
+						$(this).text(($(this).text() == settings.placeholderText) ? expandedText : settings.placeholderText);
 						
 						setTitleText($(this));
 					});
@@ -61,8 +60,6 @@
 
 					$(this).append(expandedElement);
 				}							
-			}).data('expandableText', {
-				// No data manipulation neccessary here so far
 			});
 			
 			// Set title attribute value depending on currently displayed text
