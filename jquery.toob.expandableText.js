@@ -28,7 +28,11 @@
 				// Title for placeholder element (information is hidden)
 				'hiddenTitleText': '',
 				// Title for information element (information is shown)
-				'displayedTitleText': ''
+				'displayedTitleText': '',
+				// CSS class for placeholder element 
+				'placeholderClass': '',
+				// CSS class for information element 
+				'resultClass': ''
 			}, options);
 
 			// Create data attribute, if settings does not start with "data-"
@@ -44,13 +48,15 @@
 											.append((settings.hideInitially) ? settings.placeholderText : expandedText)
 											.css('cursor', 'pointer');
 											
-					setTitleText(expandedElement);
+					setTitleText(expandedElement);				
+					setClassAttribute(expandedElement);
 
 					// Add click event for information element
 					expandedElement.on("click", function (event) {
 						$(this).text(($(this).text() == settings.placeholderText) ? expandedText : settings.placeholderText);
 						
-						setTitleText($(this));
+						setTitleText($(this));				
+						setClassAttribute(expandedElement);
 					});
 
 					// Insert blank space before information element if wanted
@@ -68,6 +74,12 @@
 				if (!element.attr('title')) {
 					element.removeAttr('title');
 				}
+			}
+			
+			// Set title attribute value depending on currently displayed text
+			function setClassAttribute(element){
+				element.removeClass((element.text() == settings.placeholderText) ? settings.resultClass : settings.placeholderClass);
+				element.addClass((element.text() == settings.placeholderText) ? settings.placeholderClass : settings.resultClass);
 			}
 
 			return this;
